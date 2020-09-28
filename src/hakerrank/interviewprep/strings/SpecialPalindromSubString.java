@@ -7,7 +7,7 @@ package hakerrank.interviewprep.strings;
 public class SpecialPalindromSubString {
 
 
-    static int getSpecialStringsCount(String str){
+    static int getSpecialStringsCount(String str) {
         int len = str.length();
         return len;
 

@@ -14,22 +14,21 @@ public class MinimunSwap {
 
 
     public static void main(String[] args) {
-        int arr [] =new int [] {4,3,1,2};
+        int[] arr = new int[]{4, 3, 1, 2};
         System.out.println(minimumSwaps(arr));
 
     }
 
     static int minimumSwaps(int[] arr) {
         int len = arr.length;
-        int swap =0;
-        for(int i =1;i<=len;i++)
-        {
-            if(arr[i-1]!=i){
+        int swap = 0;
+        for (int i = 1; i <= len; i++) {
+            if (arr[i - 1] != i) {
 
-                for(int j=i;j<len;j++){
-                    if(arr[j]==i){
-                        arr[j]=arr[i-1];
-                        arr[i-1]=i;
+                for (int j = i; j < len; j++) {
+                    if (arr[j] == i) {
+                        arr[j] = arr[i - 1];
+                        arr[i - 1] = i;
                         swap++;
                         break;
                     }
