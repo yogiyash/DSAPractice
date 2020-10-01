@@ -1,6 +1,9 @@
 package concepts.datastuctures;
 
+import org.w3c.dom.Node;
+
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.stream.IntStream;
 
 /**
@@ -33,12 +36,8 @@ public class LinkedListDemo {
         list.add(new LinkedNode<>(21));
         list.add(new LinkedNode<>(22));
 
-
         System.out.println("new list");
-
         list.print();
-
-
     }
 
 
@@ -98,10 +97,7 @@ class SimpleLinkedList<T>{
             //delete something in between
             lastNode.next = node.next;
         }
-
-
     }
-ehcoi
 
     void print(){
         LinkedNode node = head;
@@ -111,12 +107,28 @@ ehcoi
         }
     }
 
+    /**
+     * Find nth element, considering index zero based
+     * @param n
+     * @param node
+     * @return
+     */
+    LinkedNode find(int n, LinkedNode node){
+        if(node==null)
+            return  null;
+
+        if(n>0)
+            find(n-1,node.next);
+
+        return  node;
+    }
+
     LinkedNode find(T val){
 
         LinkedNode result = null;
         LinkedNode node = head;
         while (node!=null){
-            if(node.data==val) {
+            if(Objects.equals(node.data,val)) {
                 result = node;
                 break;
             }
