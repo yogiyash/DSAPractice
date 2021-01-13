@@ -1,4 +1,4 @@
-package concepts.oops;
+package concepts.oops.solid;
 
 import java.util.ArrayList;
 import java.util.List;

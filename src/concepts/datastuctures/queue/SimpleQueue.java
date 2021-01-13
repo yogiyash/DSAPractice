@@ -1,4 +1,4 @@
-package concepts.datastuctures;
+package concepts.datastuctures.queue;
 
 import java.util.stream.IntStream;
 
@@ -9,11 +9,11 @@ public class SimpleQueue<T> {
 
     public static void main(String[] args) {
 
-        SimpleQueue <Integer> que= new SimpleQueue<>();
-        IntStream.range(1,11).mapToObj(QueueNode::new).forEach(que::enqueue);
+        SimpleQueue<Integer> que = new SimpleQueue<>();
+        IntStream.range(1, 11).mapToObj(QueueNode::new).forEach(que::enqueue);
         System.out.println(que);
-        QueueNode a= que.dequeue();
-        QueueNode b= que.dequeue();
+        QueueNode a = que.dequeue();
+        QueueNode b = que.dequeue();
         que.enqueue(a);
         que.enqueue(b);
         System.out.println("altered queue");
@@ -29,6 +29,7 @@ public class SimpleQueue<T> {
 
     /**
      * add element to the end of queue
+     *
      * @param node
      */
     public void enqueue(QueueNode node) {
@@ -45,24 +46,24 @@ public class SimpleQueue<T> {
 
     /**
      * Remove  the first element
+     *
      * @return
      */
     public QueueNode<T> dequeue() {
 
-        QueueNode plucked =null;
+        QueueNode plucked = null;
 
-        if (head == null)
-        {
+        if (head == null) {
 
-        }else if (head == tail) {
+        } else if (head == tail) {
             // return the first and only element
             plucked = head;
             head = tail = null;
             return plucked;
-        }else{
-        plucked = head;
-        head = head.next;
-        plucked.next = null;
+        } else {
+            plucked = head;
+            head = head.next;
+            plucked.next = null;
         }
 
         return plucked;
@@ -70,19 +71,19 @@ public class SimpleQueue<T> {
 
     @Override
     public String toString() {
-       StringBuilder builder = new StringBuilder();
-        builder.append("SimpleQueue{" );
-        if(head!=null){
+        StringBuilder builder = new StringBuilder();
+        builder.append("SimpleQueue{");
+        if (head != null) {
             QueueNode node = head;
-            while(node!=null){
+            while (node != null) {
                 builder.append(node).append(",");
-                node=node.next;
+                node = node.next;
             }
             //remove last comma
-            builder.setLength(builder.length()-1);
+            builder.setLength(builder.length() - 1);
         }
         builder.append('}');
-        return  builder.toString();
+        return builder.toString();
     }
 }
 
@@ -90,8 +91,9 @@ class QueueNode<T> {
     QueueNode prev;
     QueueNode next;
     T val;
-    QueueNode(T val){
-        this.val =val;
+
+    QueueNode(T val) {
+        this.val = val;
     }
 
     @Override

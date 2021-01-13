@@ -12,19 +12,19 @@ public class NRepeatedElement {
 
     }
 
-    static int repeatedElemet(int arr[]){
-        HashMap<Integer,Integer> map = new HashMap<>();
+    static int repeatedElemet(int[] arr) {
+        HashMap<Integer, Integer> map = new HashMap<>();
         // initialize with random;
-        int result =arr[0];
-        for(int i:arr){
+        int result = arr[0];
+        for (int i : arr) {
             Integer num = map.get(i);
-            if(num == null){
-                map.put(i,1);
-            }else if(num==1){
-                result =i;
+            if (num == null) {
+                map.put(i, 1);
+            } else if (num == 1) {
+                result = i;
             }
         }
-        return  result;
+        return result;
     }
 
 }

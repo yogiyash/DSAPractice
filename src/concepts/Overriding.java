@@ -10,11 +10,11 @@ public class Overriding {
         List<Honda> list = new ArrayList<Honda>();
         list.add(new Honda());
         list.add(new Civic());
-        list.forEach(h->{
+        list.forEach(h -> {
         /* if(h instanceof Civic){
              ((Civic) h).callSuper();
          }else{*/
-             h.print();
+            Honda.print();
 //         }
 
         });
@@ -23,25 +23,29 @@ public class Overriding {
 
 }
 
-class Honda{
+class Honda {
 
-    private static  String made(){return  "1900";}
+    private static String made() {
+        return "1900";
+    }
 
 
-    static void  print(){
-        System.out.println("A Honda"+made());
+    static void print() {
+        System.out.println("A Honda" + made());
     }
 }
 
-class Civic extends Honda{
+class Civic extends Honda {
 
-    private static  String made(){ return "2000";}
+    private static String made() {
+        return "2000";
+    }
 
-    static  void print() {
+    static void print() {
         System.out.println("A Civic" + made());
     }
 
-    void callSuper(){
-        super.print();
+    void callSuper() {
+        Honda.print();
     }
 }

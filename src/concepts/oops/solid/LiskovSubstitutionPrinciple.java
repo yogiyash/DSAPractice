@@ -1,4 +1,4 @@
-package concepts.oops;
+package concepts.oops.solid;
 
 /**
  * The parent typed should be substituable with derived type completely without effecting the code
