@@ -6,15 +6,18 @@
 var twoSum = function(nums, target) {
     
     let map = {}
+    let arr = [];
     for (let i =0 ; i< nums.length; i++){
+        //check if second part already in array
         if(map[target-nums[i]] != undefined){
-            const arr = [];
             arr.push(map[target-nums[i]]);
             arr.push(i);
-            return arr;
-        }
+            break;
+        }else{
         map[nums[i]] = i;
+        }
     }
+    return arr;
 };
 
 
