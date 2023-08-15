@@ -4,13 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class GroupAnagram {
-
-    private final static int charcode = (int) 'a';
 
     private static String calculateAnahash(String value) {
 
@@ -33,19 +30,11 @@ public class GroupAnagram {
             Map<String, List<String>> map  = new HashMap<>();
             for (String str: strs){
                 String hash = calculateAnahash(str);
-                List<String> list = map.get(hash);
-                
-                if(list == null)
-                { 
-                    list = new ArrayList<String>();
-                }
+                List<String> list = map.getOrDefault(hash,new ArrayList<String>());
                 list.add(str);
                 map.put(hash,list);
             }
-
-            
             final List<List<String>> result = new ArrayList<>();
-
             for(String e : map.keySet()){
                 result.add(map.get(e));
             }
