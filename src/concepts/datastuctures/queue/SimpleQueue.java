@@ -10,10 +10,10 @@ public class SimpleQueue<T> {
     public static void main(String[] args) {
 
         SimpleQueue<Integer> que = new SimpleQueue<>();
-        IntStream.range(1, 11).mapToObj(QueueNode::new).forEach(que::enqueue);
+        IntStream.range(1, 11).mapToObj(QueueNode<Integer>::new).forEach(que::enqueue);
         System.out.println(que);
-        QueueNode a = que.dequeue();
-        QueueNode b = que.dequeue();
+        QueueNode<Integer> a = que.dequeue();
+        QueueNode <Integer> b = que.dequeue();
         que.enqueue(a);
         que.enqueue(b);
         System.out.println("altered queue");
@@ -84,22 +84,5 @@ public class SimpleQueue<T> {
         }
         builder.append('}');
         return builder.toString();
-    }
-}
-
-class QueueNode<T> {
-    QueueNode prev;
-    QueueNode next;
-    T val;
-
-    QueueNode(T val) {
-        this.val = val;
-    }
-
-    @Override
-    public String toString() {
-        return "QueueNode{" +
-                " val=" + val +
-                '}';
     }
 }

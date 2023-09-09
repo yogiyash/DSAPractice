@@ -1,17 +1,41 @@
 package leetcode.array;
 
-import utility.array.ArraysHelper;
+import java.util.Arrays;
 
 public class RemoveDuplicateFromSortedArray {
 
-
     public static void main(String[] args) {
-        int[] arr =// new int[]{1,1,2};
-                new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+        int[] arr = // new int[]{1,1,2};
+                new int[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
 
-        int len = removeDuplicates(arr);
-        System.out.println("new array len :" + len);
-        ArraysHelper.printArray(arr);
+        int len = removeDuplicatesStable(arr);
+        System.out.println(len);
+        Arrays.stream(arr).forEach(System.out::print);
+    }
+
+    public static int removeDuplicatesStable(int a[]) {
+        int left = 0, right = 1;
+        int len = a.length;
+        while (right < len) {
+            if (a[left] >= a[right]) {
+                while (a[left] >= a[right] && right < len - 1) {
+                    right++;
+                }
+
+                if (a[left] == a[right]) {
+                    // no more unique
+                    break;
+                }
+                left++;
+                a[left] = a[right];
+                right = left + 1;
+            } else {
+                left++;
+                right++;
+            }
+        }
+        return left + 1;
+
     }
 
     public static int removeDuplicates(int[] nums) {
@@ -24,7 +48,7 @@ public class RemoveDuplicateFromSortedArray {
         while (pos < len && end < len - 1) {
 
             if (start == -1) {
-                //no dups yet
+                // no dups yet
                 if (nums[pos] == nums[pos - 1]) {
                     start = pos;
                     end = pos;
