@@ -49,9 +49,7 @@ public class Anagram {
 
 public static void main(String[] args) {
     String s1 = "rat",s2 = "car";
-    System.out.println(isAnagram(s1, s2));
-    
-    
+    System.out.println(isAnagram(s1, s2));  
 }
 
 }

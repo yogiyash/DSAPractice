@@ -25,27 +25,19 @@ public class Overriding {
 
 class Honda {
 
-    private static String made() {
+    private String made() {
         return "1900";
     }
 
-
-    static void print() {
+     void print() {
         System.out.println("A Honda" + made());
     }
 }
 
-class Civic extends Honda {
+class Civic extends Honda { 
 
-    private static String made() {
+    private  String made() {
         return "2000";
     }
 
-    static void print() {
-        System.out.println("A Civic" + made());
-    }
-
-    void callSuper() {
-        Honda.print();
-    }
 }

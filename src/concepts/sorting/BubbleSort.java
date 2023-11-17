@@ -17,6 +17,7 @@ public class BubbleSort {
         sort(arr);
     }
 
+
     static void sort(int[] arr) {
         int len = arr.length;
         int temp = 0;
